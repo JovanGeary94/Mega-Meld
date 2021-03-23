@@ -1,0 +1,228 @@
+
+
+''' 3rd Party Library '''
+from PIL import Image               # pip install pillow
+from random import randint
+
+'''Bit Changing Functions for Different Options'''
+
+def first_choice(greenVal, blueVal):
+    
+    if cbOptions[0] == 1:
+        
+        greenVal = greenVal
+        blueVal = blueVal | 1
+        
+        return greenVal, blueVal
+        
+    else:
+        
+        greenVal = greenVal | 1
+        blueVal = blueVal
+        
+        return greenVal, blueVal
+    
+def second_choice(redVal, greenVal, blueVal):
+    
+    if cbOptions[1] == 3:
+        
+        redVal = redVal
+        greenVal = greenVal | 1
+        blueVal = blueVal | 1
+        
+        return redVal, greenVal, blueVal
+    
+    else:
+        
+        redVal = redVal | 1
+        greenVal = greenVal
+        blueVal = blueVal
+        
+        return redVal, greenVal, blueVal
+
+def third_choice(redVal, greenVal, blueVal):
+    
+    if cbOptions[2] == 5:
+        
+        redVal = redVal | 1
+        greenVal = greenVal
+        blueVal = blueVal | 1
+        
+        return redVal, greenVal, blueVal
+    
+    else:
+        
+        redVal = redVal | 1
+        greenVal = greenVal | 1
+        blueVal = blueVal
+        
+        return redVal, greenVal, blueVal
+    
+
+# Pixel tuple index
+RED   = 0
+GREEN = 1
+BLUE  = 2
+
+''' Configure Choice Options '''
+
+cbOptions = []
+cbMessage = ['Dead Drop @', 'Corner of Lexington Ave and E 48th Street', 
+             'Corner of Madison Ave and E 34th Street', 'Drop Package in Potted Plant outside Wells Fargo',
+             'Drop Package in Gold Garbage Can', '12 PM Sharp', '7 AM Sharp', 'Abort if you see a Red Rose']
+
+print('Select the following choices to encode your message: \n')
+print("'Dead Drop @'\n")
+print('\t[1] Corner of Lexington Ave and E 48th Street')
+print('\t[2] Corner of Madison Ave and E 34th Street\n')
+print('\t[3] Drop Package in Potted Plant outside Wells Fargo')
+print('\t[4] Drop Package in Gold Garbage Can\n')
+print('\t[5] 12 PM Sharp')
+print('\t[6] 7 AM Sharp\n')
+print("'Abort if you see a Red Rose'\n")
+
+'''Choice Selection'''
+
+cbChoices = 5
+i = 0 
+
+while i < cbChoices - 2:
+    
+    if i == 0:
+        
+        cbSelect = int(input(f'Select choice {i + 1} or {i + 2}: '))
+        
+        if cbSelect > 2 or cbSelect < 1:
+            
+            print('Invalid Input')
+            exit()
+        
+    if i == 1:
+        
+        cbSelect = int(input(f'Select choice {i +2} or {i+3}: '))
+        
+        if cbSelect > 4 or cbSelect < 3:
+            
+            print('Invalid Input')
+            exit()
+        
+    if i == 2:
+        
+        cbSelect = int(input(f'Select choice {i +3} or {i + 4}: '))
+        
+        if cbSelect > 6 or cbSelect < 5:
+            
+            print('Invalid Input')
+            exit()
+        
+    
+    cbOptions.append(cbSelect)
+    
+    i += 1
+    
+print()
+    
+print('The following message will be encoded: \n')
+print(f'\t-{cbMessage[0]}')
+print(f'\t-{cbMessage[cbOptions[0]]}')
+print(f'\t-{cbMessage[cbOptions[1]]}')
+print(f'\t-{cbMessage[cbOptions[2]]}')
+print(f'\t-{cbMessage[7]}')
+print()
+    
+''' Obtain the Basic image information '''
+
+try:
+    
+    img       = Image.open('/home/jovan/Downloads/monalisa.bmp')   
+    
+    pix = img.load()  
+    
+    # Pixel to Modify
+    r = 0  # Row
+    c = 0  # Col
+    
+    ranPix = [[]] #Empty 2d list for pixels to be chosen
+    
+    # Pull 5 values in tangem with the Code Book
+    for enum in range(0, cbChoices): 
+        
+        r = randint(0, 431) # Choose random integer for pic height
+        c = randint(0, 309) # Choose random integer for pic width
+    
+        if not ranPix[0]:
+    
+            ranPix[0].append(c)
+            ranPix[0].append(r)
+    
+        else:
+    
+            ranPix.append([c, r])
+    
+    ranPix.sort() #Sort the list starting with upper (lower numbered ) rows
+    print(f"Pixels to be modified: {ranPix}")
+    
+    i = 0
+    
+    while i < cbChoices:
+         
+        pixel = pix[ranPix[i][0], ranPix[i][1]]
+            
+        redPx = pixel[RED]
+        grnPx = pixel[GREEN]
+        bluPx = pixel [BLUE]
+            
+        print(f"\nOrginal Pixel\t\t{ranPix[i]}")
+        print("RED: ", '{:08b}'.format(redPx))
+        print("GRN: ", '{:08b}'.format(grnPx))
+        print("BLU: ", '{:08b}'.format(bluPx))
+            
+        if i == 1:
+            
+            res1 = first_choice(grnPx, bluPx)
+            grnPx = res1[0]
+            bluPx = res1[1]
+            
+        elif i == 2:
+            
+            res2 = second_choice(redPx, grnPx, bluPx)
+            redPx = res2[0]
+            grnPx = res2[1]
+            bluPx = res2[2]
+            
+            
+        elif i == 3:
+            
+            res3 = third_choice(redPx, grnPx, bluPx)
+            redPx = res3[0]
+            grnPx = res3[1]
+            bluPx = res3[2]
+            
+        elif i == 4:
+            
+            redPx = redPx | 1
+            grnPx = grnPx | 1
+            bluPx = bluPx | 1           
+            
+        print(f"\nAltered Pixel\t\t{ranPix[i]}")
+        print("RED: ", '{:08b}'.format(redPx))
+        print("GRN: ", '{:08b}'.format(grnPx))
+        print("BLU: ", '{:08b}'.format(bluPx))
+        print('-' * 30)
+            
+        pixel = (redPx, grnPx, bluPx)
+        
+        pix[ranPix[i][0], ranPix[i][1]] = pixel
+        
+        i += 1
+        
+    img.save('/home/jovan/Downloads/monaLisaSteg.bmp')
+    
+    print("\nSingle Pixel Steganography Done")
+
+except Exception as err:
+    print("Steg Failed: ", str(err))
+    
+    
+        
+    
