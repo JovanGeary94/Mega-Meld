@@ -1,4 +1,5 @@
 
+
 ''' 3rd Party Library '''
 from PIL import Image               # pip install pillow
 from random import randint
@@ -6,27 +7,29 @@ import os
 
 '''Bit Changing Functions for Different Options'''
 
-def first_choice(greenVal, blueVal):
+def first_choice(redVal, greenVal, blueVal):
     
     if cbOptions[0] == 1:
         
-        greenVal = greenVal
+        redVal = redVal & 254
+        greenVal = greenVal & 254
         blueVal = blueVal | 1
         
-        return greenVal, blueVal
+        return redVal, greenVal, blueVal
         
     else:
         
+        redVal = redVal & 254
         greenVal = greenVal | 1
-        blueVal = blueVal
+        blueVal = blueVal & 254
         
-        return greenVal, blueVal
+        return redVal, greenVal, blueVal
     
 def second_choice(redVal, greenVal, blueVal):
     
     if cbOptions[1] == 3:
         
-        redVal = redVal
+        redVal = redVal & 254
         greenVal = greenVal | 1
         blueVal = blueVal | 1
         
@@ -35,8 +38,8 @@ def second_choice(redVal, greenVal, blueVal):
     else:
         
         redVal = redVal | 1
-        greenVal = greenVal
-        blueVal = blueVal
+        greenVal = greenVal & 254
+        blueVal = blueVal & 254
         
         return redVal, greenVal, blueVal
 
@@ -45,7 +48,7 @@ def third_choice(redVal, greenVal, blueVal):
     if cbOptions[2] == 5:
         
         redVal = redVal | 1
-        greenVal = greenVal
+        greenVal = greenVal & 254
         blueVal = blueVal | 1
         
         return redVal, greenVal, blueVal
@@ -54,12 +57,12 @@ def third_choice(redVal, greenVal, blueVal):
         
         redVal = redVal | 1
         greenVal = greenVal | 1
-        blueVal = blueVal
+        blueVal = blueVal & 254
         
         return redVal, greenVal, blueVal
 
-currFile = os.path.abspath('D:/CYBV 473-(Python)/Week10/monalisa.bmp')
-saveFile = os.path.abspath('D:/CYBV 473-(Python)/Week10/monalisaSteg.bmp')
+currFile = os.path.abspath('/home/jovan/Downloads/monalisa.bmp')
+saveFile = os.path.abspath('/home/jovan/Downloads/monalisaSteg.bmp')
 
 # Pixel tuple index
 RED   = 0
@@ -185,11 +188,19 @@ try:
         
         # This if-elif block is not scalable but works nicely for print testing this program, works with the functions above to modify the random [c, r] values chosen
         # The first and last bit modifications to the monalisa are considered constant: 'Dead Drop @' and 'Abort if you see a Red Rose', the other 3 outcomes depend on user input    
-        if i == 1:
+      
+        if i == 0:
             
-            res1 = first_choice(grnPx, bluPx) # Will modify bits based on user choice of 'Corner of Lexington..' or 'Corner of Madison..', same principle applies to the i==2 and i==3 elif blocks
-            grnPx = res1[0]
-            bluPx = res1[1]
+            redPx = redPx & 254
+            grnPx = grnPx & 254
+            bluPx = bluPx & 254        
+        
+        elif i == 1:
+            
+            res1 = first_choice(redPx, grnPx, bluPx) # Will modify bits based on user choice of 'Corner of Lexington..' or 'Corner of Madison..', same principle applies to the i==2 and i==3 elif blocks
+            redPx = res1[0]
+            grnPx = res1[1]
+            bluPx = res1[2]
             
         elif i == 2:
             
@@ -205,6 +216,7 @@ try:
             redPx = res3[0]
             grnPx = res3[1]
             bluPx = res3[2]
+            
         # The 'Abort' options is considered a constant    
         elif i == 4:
             
