@@ -83,6 +83,7 @@
 	### NOTE: The file names in the Initial Root Directory and Delta Root Directory DO NOT have to match in order for the script to compare files properly, the script uses pattern matching in the text of each file to pull hostnames and compare
 
 	### IMPORTANT NOTE: The amount of files in the Delta Root Directory CANNOT exceed the amount of files in the Initial Root Directory, essentially, Delta Root Files <= Initial Root Files
+	### IMPORTANT NOTE: This script uses lawsie's idlecolors.py to function properly, which can be found here: https://github.com/lawsie/idlecolors. Place it in the same directory as the Meld.py script
 
 2. Using the MEGA-Meld tool:
 	
@@ -115,8 +116,7 @@
 
 3. Misc
 
-	### A. This script uses lawsie's idlecolors.py to function properly, which can be found here: https://github.com/lawsie/idlecolors
-	B. The Python file included can be edited to whatever changes are necessary for better use of the tool, 
+	A. The Python file included can be edited to whatever changes are necessary for better use of the tool, 
 	   the entire Python script includes documentation and comments on logic for overall understanding on how it works
-	C. Context lines can be increased/decreased on the script (line 105 n=5)
-	D. In the script's v1.0 state it is only useful for comparing configurations of routers and switches in larger volumes
+	B. Context lines can be increased/decreased on the script (line 105 n=5)
+	C. In the script's v1.0 state it is only useful for comparing configurations of routers and switches in larger volumes
