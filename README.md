@@ -86,18 +86,18 @@
 
 2. Using the MEGA-Meld tool:
 	
-	A. Run the MEGAMeld.bat script
-	B. A dialog box will appear notifying you to select an Intial Root Folder, hit OK
-		I. A File Explorer window will open and have you select the Initial Root Folder, as mentioned before all sub-directories within that folder will be traversed
-	C. A dialog box will appear notifying you to select a Delta Root Folder, hit OK
-		I. A File Explorer window will open and have you select the Delta Root Folder, as mentioned before all sub-directories within that folder will be traversed
-	D. The output will appear in the python IDLE shell, there are several characters and color codes to note:
-		I. Blue text will appear in two lines at the top of each file comparison, specifying the name of the routers/switches being compared. The Initial File Name will be followed by the Delta File Name
-		II. Green text may appear in the output preceded by a (-) character. This signifies text that was present in the Initial File that is not present in the Delta File (configuration removed).
-		III. Red text may appear in the output preceded by a (+) character. This signifies text that was not present in the Initial File but is present in the Delta File (configuration added).
-		IV. Black text may appear in the output. This is used for context between green/red text and signifies that the text is the same between both files (black text only appears above and below green/red text to provide context to where changes have occured).
-		V. Green text (-) immediately followed by red text (+) usually signifies a partial value change in the text string; for example: logging buffered 32768 -> logging buffered 65536 will appear as (-)Green -> (+)Red.
-		VI. Blue text lines denoting Router/Switch names followed by a blank space signifies that the Intial File and Delta File are identical
+A. Run the MEGAMeld.bat script
+B. A dialog box will appear notifying you to select an Intial Root Folder, hit OK
+I. A File Explorer window will open and have you select the Initial Root Folder, as mentioned before all sub-directories within that folder will be traversed
+C. A dialog box will appear notifying you to select a Delta Root Folder, hit OK
+I. A File Explorer window will open and have you select the Delta Root Folder, as mentioned before all sub-directories within that folder will be traversed
+D. The output will appear in the python IDLE shell, there are several characters and color codes to note:
+I. Blue text will appear in two lines at the top of each file comparison, specifying the name of the routers/switches being compared. The Initial File Name will be followed by the Delta File Name
+II. Green text may appear in the output preceded by a (-) character. This signifies text that was present in the Initial File that is not present in the Delta File (configuration removed).
+III. Red text may appear in the output preceded by a (+) character. This signifies text that was not present in the Initial File but is present in the Delta File (configuration added).
+IV. Black text may appear in the output. This is used for context between green/red text and signifies that the text is the same between both files (black text only appears above and below green/red text to provide context to where changes have occured).
+V. Green text (-) immediately followed by red text (+) usually signifies a partial value change in the text string; for example: logging buffered 32768 -> logging buffered 65536 will appear as (-)Green -> (+)Red.
+VI. Blue text lines denoting Router/Switch names followed by a blank space signifies that the Intial File and Delta File are identical
 	
 	### NOTE: Like Meld, MEGA-Meld also recognizes spaces and newlines. You may come across unimportant changes such as these between files
 	### NOTE: It is recommended to make 30-70 comparisons at a time (30-70 Initial to Delta file comparisons), hundreds of comparisons may make it difficult to scroll through the IDLE shell to review changes. Test to see what works best for you.
