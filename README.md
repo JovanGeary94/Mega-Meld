@@ -99,8 +99,8 @@ IV. Black text may appear in the output. This is used for context between green/
 V. Green text (-) immediately followed by red text (+) usually signifies a partial value change in the text string; for example: logging buffered 32768 -> logging buffered 65536 will appear as (-)Green -> (+)Red.
 VI. Blue text lines denoting Router/Switch names followed by a blank space signifies that the Intial File and Delta File are identical
 	
-	### NOTE: Like Meld, MEGA-Meld also recognizes spaces and newlines. You may come across unimportant changes such as these between files
-	### NOTE: It is recommended to make 30-70 comparisons at a time (30-70 Initial to Delta file comparisons), hundreds of comparisons may make it difficult to scroll through the IDLE shell to review changes. Test to see what works best for you.
+### NOTE: Like Meld, MEGA-Meld also recognizes spaces and newlines. You may come across unimportant changes such as these between files
+### NOTE: It is recommended to make 30-70 comparisons at a time (30-70 Initial to Delta file comparisons), hundreds of comparisons may make it difficult to scroll through the IDLE shell to review changes. Test to see what works best for you.
 
 3. Misc
 
