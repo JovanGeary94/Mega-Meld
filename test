@@ -1,0 +1,2 @@
+ with open(filenames, 'r') as readFile:
+            Read_Text = readFile.readlines()
