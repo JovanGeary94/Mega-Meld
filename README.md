@@ -90,11 +90,11 @@
 
 	B. A dialog box will appear notifying you to select an Intial Root Folder, hit OK
 
-		I. A File Explorer window will open and have you select the Initial Root Folder, as mentioned before all sub-directories within that folder will be traversed
+	I. A File Explorer window will open and have you select the Initial Root Folder, as mentioned before all sub-directories within that folder will be traversed
 
 	C. A dialog box will appear notifying you to select a Delta Root Folder, hit OK
 
-		I. A File Explorer window will open and have you select the Delta Root Folder, as mentioned before all sub-directories within that folder will be traversed
+	I. A File Explorer window will open and have you select the Delta Root Folder, as mentioned before all sub-directories within that folder will be traversed
 
 	D. The output will appear in the python IDLE shell, there are several characters and color codes to note:
 
