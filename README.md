@@ -82,7 +82,7 @@
 	
 	### NOTE: The file names in the Initial Root Directory and Delta Root Directory DO NOT have to match in order for the script to compare files properly, the script uses pattern matching in the text of each file to pull hostnames and compare
 
-	*** IMPORTANT NOTE: The amount of files in the Delta Root Directory CANNOT exceed the amount of files in the Initial Root Directory, essentially, Delta Root Files <= Initial Root Files
+	### IMPORTANT NOTE: The amount of files in the Delta Root Directory CANNOT exceed the amount of files in the Initial Root Directory, essentially, Delta Root Files <= Initial Root Files
 
 2. Using the MEGA-Meld tool:
 	
