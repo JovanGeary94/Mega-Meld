@@ -7,8 +7,7 @@
 
 	B. Obtain a set of Initial Files and add them into the Initial Root Directory (initial meaning original files that have not been altered)
 
-	### NOTE: Both the Initial and Delta Root Directories can contain sub-directories (containing the files), this script will automatically traverse all sub-directories within a
-		  respective root folder
+	### NOTE: Both the Initial and Delta Root Directories can contain sub-directories (containing the files), this script will automatically traverse all sub-directories within a respective root folder
 	### EXAMPLE: 
 		
 		(Root Folder Name) 'Initial Switch Configurations'
@@ -81,11 +80,9 @@
 			|
 			|_ _ _> [f]'C.conf'
 	
-	### NOTE: The file names in the Initial Root Directory and Delta Root Directory DO NOT have to match in order for the script to compare files properly,
-		  the script uses pattern matching in the text of each file to pull hostnames and compare
+	### NOTE: The file names in the Initial Root Directory and Delta Root Directory DO NOT have to match in order for the script to compare files properly, the script uses pattern matching in the text of each file to pull hostnames and compare
 
-	*** IMPORTANT NOTE: The amount of files in the Delta Root Directory CANNOT exceed the amount of files in the Initial Root Directory,
-			    essentially, Delta Root Files <= Initial Root Files
+	*** IMPORTANT NOTE: The amount of files in the Delta Root Directory CANNOT exceed the amount of files in the Initial Root Directory, essentially, Delta Root Files <= Initial Root Files
 
 2. Using the MEGA-Meld tool:
 	
@@ -110,8 +107,7 @@
 		VI. Blue text lines denoting Router/Switch names followed by a blank space signifies that the Intial File and Delta File are identical
 	
 	### NOTE: Like Meld, MEGA-Meld also recognizes spaces and newlines. You may come across unimportant changes such as these between files
-	### NOTE: It is recommended to make 30-70 comparisons at a time (30-70 Initial to Delta file comparisons), hundreds of comparisons may
-		  make it difficult to scroll through the IDLE shell to review changes. Test to see what works best for you.
+	### NOTE: It is recommended to make 30-70 comparisons at a time (30-70 Initial to Delta file comparisons), hundreds of comparisons may make it difficult to scroll through the IDLE shell to review changes. Test to see what works best for you.
 
 3. Misc
 
