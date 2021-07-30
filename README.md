@@ -111,8 +111,8 @@
 
 3. Misc
 
-	A. The Python file included can be edited to whatever changes are necessary for better use of the tool, 
+	### A. This script uses lawsie's idlecolors.py to function properly, which can be found here: https://github.com/lawsie/idlecolors
+	B. The Python file included can be edited to whatever changes are necessary for better use of the tool, 
 	   the entire Python script includes documentation and comments on logic for overall understanding on how it works
-	B. The file idlecolors.py is necessary for the script to function properly, keep it in the same directory as MEGA-Meld
 	C. Context lines can be increased/decreased on the script (line 105 n=5)
 	D. In the script's v1.0 state it is only useful for comparing configurations of routers and switches in larger volumes
