@@ -21,7 +21,7 @@
 	
 	C. Obtain a set of Delta Files and add them into the Delta Root Directory (delta meaning files that are/may have changed)
 
-	--> EXAMPLE:
+	### EXAMPLE:
 	
 		(Root Folder Name) 'Delta Switch Configurations'
 		|_ _ _> (Sub Folder Name) 'A Switches'
