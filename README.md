@@ -87,7 +87,9 @@
 2. Using the MEGA-Meld tool:
 	
 A. Run the MEGAMeld.bat script
+
 B. A dialog box will appear notifying you to select an Intial Root Folder, hit OK
+
 I. A File Explorer window will open and have you select the Initial Root Folder, as mentioned before all sub-directories within that folder will be traversed
 C. A dialog box will appear notifying you to select a Delta Root Folder, hit OK
 I. A File Explorer window will open and have you select the Delta Root Folder, as mentioned before all sub-directories within that folder will be traversed
